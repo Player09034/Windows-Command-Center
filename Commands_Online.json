@@ -1,1 +1,2114 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-09-03",
+  "application": "Windows Command Center",
+  "commands": [
+    {
+      "name": "Ayuda de CMD",
+      "command": "help",
+      "category": "Sistema",
+      "description": "Muestra la ayuda general de los comandos disponibles en Windows.",
+      "template": "help",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Versión de Windows",
+      "command": "ver",
+      "category": "Sistema",
+      "description": "Muestra la versión de Windows instalada.",
+      "template": "ver",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Información completa del sistema",
+      "command": "systeminfo",
+      "category": "Sistema",
+      "description": "Muestra información detallada del sistema operativo, hardware, memoria, red y revisiones instaladas.",
+      "template": "systeminfo",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Nombre del equipo",
+      "command": "hostname",
+      "category": "Sistema",
+      "description": "Muestra el nombre del equipo actual.",
+      "template": "hostname",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Usuario actual",
+      "command": "whoami",
+      "category": "Usuarios",
+      "description": "Muestra el usuario con el que se está ejecutando la sesión.",
+      "template": "whoami",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Usuario actual y privilegios",
+      "command": "whoami /all",
+      "category": "Seguridad",
+      "description": "Muestra identidad, grupos, privilegios y otros identificadores de seguridad de la sesión actual.",
+      "template": "whoami /all",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Privilegios del usuario",
+      "command": "whoami /priv",
+      "category": "Seguridad",
+      "description": "Muestra los privilegios de seguridad asociados al usuario actual.",
+      "template": "whoami /priv",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Grupos del usuario",
+      "command": "whoami /groups",
+      "category": "Seguridad",
+      "description": "Muestra los grupos de seguridad de la cuenta actual.",
+      "template": "whoami /groups",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Variables de entorno",
+      "command": "set",
+      "category": "Sistema",
+      "description": "Muestra las variables de entorno de la sesión de CMD.",
+      "template": "set",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Procesos activos",
+      "command": "tasklist",
+      "category": "Procesos",
+      "description": "Lista los procesos actualmente ejecutándose.",
+      "template": "tasklist",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Procesos con servicios",
+      "command": "tasklist /svc",
+      "category": "Procesos",
+      "description": "Lista procesos y los servicios asociados a cada proceso.",
+      "template": "tasklist /svc",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Procesos con módulos DLL",
+      "command": "tasklist /m",
+      "category": "Procesos",
+      "description": "Muestra los módulos DLL utilizados por los procesos.",
+      "template": "tasklist /m",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Procesos detallados",
+      "command": "tasklist /v",
+      "category": "Procesos",
+      "description": "Muestra información detallada de los procesos activos.",
+      "template": "tasklist /v",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Finalizar proceso por PID",
+      "command": "taskkill",
+      "category": "Procesos",
+      "description": "Finaliza un proceso utilizando su identificador PID.",
+      "template": "taskkill /PID {pid} /F",
+      "admin": false,
+      "danger": true,
+      "fields": [
+        {
+          "key": "pid",
+          "label": "PID del proceso",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Finalizar proceso por nombre",
+      "command": "taskkill /IM",
+      "category": "Procesos",
+      "description": "Finaliza procesos utilizando el nombre del ejecutable.",
+      "template": "taskkill /IM {process} /F",
+      "admin": false,
+      "danger": true,
+      "fields": [
+        {
+          "key": "process",
+          "label": "Ejecutable",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Finalizar árbol de procesos",
+      "command": "taskkill /T",
+      "category": "Procesos",
+      "description": "Finaliza un proceso junto con los procesos hijos que dependen de él.",
+      "template": "taskkill /PID {pid} /T /F",
+      "admin": false,
+      "danger": true,
+      "fields": [
+        {
+          "key": "pid",
+          "label": "PID",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Información de controladores",
+      "command": "driverquery",
+      "category": "Hardware",
+      "description": "Lista los controladores instalados en Windows.",
+      "template": "driverquery",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Controladores detallados",
+      "command": "driverquery /v",
+      "category": "Hardware",
+      "description": "Muestra información detallada de los controladores instalados.",
+      "template": "driverquery /v",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Información de Windows",
+      "command": "msinfo32",
+      "category": "Diagnóstico",
+      "description": "Abre la herramienta gráfica de información del sistema.",
+      "template": "start msinfo32",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Diagnóstico DirectX",
+      "command": "dxdiag",
+      "category": "Hardware",
+      "description": "Abre la herramienta de diagnóstico de DirectX.",
+      "template": "start dxdiag",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Informe DirectX a archivo",
+      "command": "dxdiag /t",
+      "category": "Diagnóstico",
+      "description": "Genera un informe de diagnóstico de DirectX en un archivo de texto.",
+      "template": "dxdiag /t {file}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo de salida",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
 
+    {
+      "name": "Configuración IP completa",
+      "command": "ipconfig /all",
+      "category": "Red",
+      "description": "Muestra la configuración completa de los adaptadores de red.",
+      "template": "ipconfig /all",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Vaciar caché DNS",
+      "command": "ipconfig /flushdns",
+      "category": "Red",
+      "description": "Elimina la caché DNS local.",
+      "template": "ipconfig /flushdns",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Liberar dirección IP",
+      "command": "ipconfig /release",
+      "category": "Red",
+      "description": "Libera la configuración DHCP de los adaptadores.",
+      "template": "ipconfig /release",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Renovar dirección IP",
+      "command": "ipconfig /renew",
+      "category": "Red",
+      "description": "Solicita una nueva configuración DHCP.",
+      "template": "ipconfig /renew",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Mostrar caché DNS",
+      "command": "ipconfig /displaydns",
+      "category": "Red",
+      "description": "Muestra las entradas DNS almacenadas localmente.",
+      "template": "ipconfig /displaydns",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Registrar DNS nuevamente",
+      "command": "ipconfig /registerdns",
+      "category": "Red",
+      "description": "Inicia manualmente el registro DNS de las configuraciones del equipo.",
+      "template": "ipconfig /registerdns",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Ping",
+      "command": "ping",
+      "category": "Red",
+      "description": "Comprueba la conectividad con otro equipo o dirección IP.",
+      "template": "ping {host}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "host",
+          "label": "Host o IP",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Ping continuo",
+      "command": "ping -t",
+      "category": "Red",
+      "description": "Realiza pings continuamente hasta que se interrumpa la ejecución.",
+      "template": "ping -t {host}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "host",
+          "label": "Host o IP",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Traceroute",
+      "command": "tracert",
+      "category": "Red",
+      "description": "Muestra los saltos de red hasta un destino.",
+      "template": "tracert {host}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "host",
+          "label": "Host o IP",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Pathping",
+      "command": "pathping",
+      "category": "Red",
+      "description": "Combina información de traceroute y estadísticas de pérdida de paquetes.",
+      "template": "pathping {host}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "host",
+          "label": "Host o IP",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Consulta DNS",
+      "command": "nslookup",
+      "category": "Red",
+      "description": "Consulta información DNS de un dominio o dirección.",
+      "template": "nslookup {host}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "host",
+          "label": "Dominio o IP",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Tabla ARP",
+      "command": "arp -a",
+      "category": "Red",
+      "description": "Muestra la tabla ARP del sistema.",
+      "template": "arp -a",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Tabla de rutas",
+      "command": "route print",
+      "category": "Red",
+      "description": "Muestra la tabla de enrutamiento IPv4 e IPv6.",
+      "template": "route print",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Agregar ruta",
+      "command": "route add",
+      "category": "Red",
+      "description": "Agrega una ruta estática a la tabla de rutas.",
+      "template": "route add {network} mask {mask} {gateway}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "network",
+          "label": "Red destino",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "mask",
+          "label": "Máscara",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "gateway",
+          "label": "Gateway",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Conexiones de red",
+      "command": "netstat -ano",
+      "category": "Red",
+      "description": "Muestra conexiones TCP/UDP, puertos y PID asociados.",
+      "template": "netstat -ano",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Conexiones con ejecutables",
+      "command": "netstat -abno",
+      "category": "Red",
+      "description": "Muestra conexiones de red y los ejecutables responsables.",
+      "template": "netstat -abno",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Direcciones MAC",
+      "command": "getmac /v",
+      "category": "Red",
+      "description": "Muestra las direcciones MAC de los adaptadores.",
+      "template": "getmac /v",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Interfaces de red",
+      "command": "netsh interface show interface",
+      "category": "Red",
+      "description": "Muestra el estado de las interfaces de red.",
+      "template": "netsh interface show interface",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Interfaces Wi-Fi",
+      "command": "netsh wlan show interfaces",
+      "category": "Wi-Fi",
+      "description": "Muestra información de las conexiones Wi-Fi actuales.",
+      "template": "netsh wlan show interfaces",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Perfiles Wi-Fi",
+      "command": "netsh wlan show profiles",
+      "category": "Wi-Fi",
+      "description": "Lista los perfiles Wi-Fi almacenados en Windows.",
+      "template": "netsh wlan show profiles",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Controlador Wi-Fi",
+      "command": "netsh wlan show drivers",
+      "category": "Wi-Fi",
+      "description": "Muestra información sobre los controladores y capacidades Wi-Fi.",
+      "template": "netsh wlan show drivers",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Reiniciar Winsock",
+      "command": "netsh winsock reset",
+      "category": "Red",
+      "description": "Restablece el catálogo Winsock de Windows.",
+      "template": "netsh winsock reset",
+      "admin": true,
+      "danger": true,
+      "fields": []
+    },
+    {
+      "name": "Restablecer TCP/IP",
+      "command": "netsh int ip reset",
+      "category": "Red",
+      "description": "Restablece componentes de la pila TCP/IP.",
+      "template": "netsh int ip reset",
+      "admin": true,
+      "danger": true,
+      "fields": []
+    },
+    {
+      "name": "Mostrar configuración IPv4",
+      "command": "netsh interface ipv4 show config",
+      "category": "Red",
+      "description": "Muestra la configuración IPv4 de las interfaces.",
+      "template": "netsh interface ipv4 show config",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Mostrar catálogo Winsock",
+      "command": "netsh winsock show catalog",
+      "category": "Red",
+      "description": "Muestra los proveedores y componentes registrados en Winsock.",
+      "template": "netsh winsock show catalog",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+
+    {
+      "name": "Lista de usuarios",
+      "command": "net user",
+      "category": "Usuarios",
+      "description": "Lista las cuentas de usuario locales.",
+      "template": "net user",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Información de usuario",
+      "command": "net user",
+      "category": "Usuarios",
+      "description": "Muestra información detallada de una cuenta local.",
+      "template": "net user {user}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "user",
+          "label": "Usuario",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Cambiar contraseña de usuario",
+      "command": "net user usuario *",
+      "category": "Usuarios",
+      "description": "Cambia la contraseña de una cuenta local mediante el aviso interactivo de CMD.",
+      "template": "net user {user} *",
+      "admin": true,
+      "danger": true,
+      "note": "La contraseña se solicita directamente en CMD y no se guarda en este programa.",
+      "fields": [
+        {
+          "key": "user",
+          "label": "Usuario",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Crear usuario local",
+      "command": "net user",
+      "category": "Usuarios",
+      "description": "Crea una nueva cuenta local y solicita la contraseña de forma interactiva.",
+      "template": "net user {user} * /add",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "user",
+          "label": "Nuevo usuario",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Eliminar usuario local",
+      "command": "net user /delete",
+      "category": "Usuarios",
+      "description": "Elimina una cuenta local.",
+      "template": "net user {user} /delete",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "user",
+          "label": "Usuario",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Lista de grupos locales",
+      "command": "net localgroup",
+      "category": "Usuarios",
+      "description": "Lista los grupos locales existentes.",
+      "template": "net localgroup",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Miembros de un grupo",
+      "command": "net localgroup",
+      "category": "Usuarios",
+      "description": "Muestra los miembros de un grupo local.",
+      "template": "net localgroup {group}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "group",
+          "label": "Grupo",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Agregar usuario a grupo",
+      "command": "net localgroup /add",
+      "category": "Usuarios",
+      "description": "Agrega una cuenta a un grupo local.",
+      "template": "net localgroup {group} {user} /add",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "group",
+          "label": "Grupo",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "user",
+          "label": "Usuario",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Quitar usuario de grupo",
+      "command": "net localgroup /delete",
+      "category": "Usuarios",
+      "description": "Elimina una cuenta de un grupo local.",
+      "template": "net localgroup {group} {user} /delete",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "group",
+          "label": "Grupo",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "user",
+          "label": "Usuario",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Configuración de contraseñas",
+      "command": "net accounts",
+      "category": "Seguridad",
+      "description": "Muestra las políticas locales relacionadas con cuentas y contraseñas.",
+      "template": "net accounts",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+
+    {
+      "name": "Lista de servicios",
+      "command": "sc query",
+      "category": "Servicios",
+      "description": "Lista los servicios instalados y su estado.",
+      "template": "sc query",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Todos los servicios",
+      "command": "sc query type= service state= all",
+      "category": "Servicios",
+      "description": "Lista todos los servicios independientemente de su estado.",
+      "template": "sc query type= service state= all",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Información de servicio",
+      "command": "sc qc",
+      "category": "Servicios",
+      "description": "Muestra la configuración de un servicio.",
+      "template": "sc qc {service}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "service",
+          "label": "Nombre del servicio",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Iniciar servicio",
+      "command": "sc start",
+      "category": "Servicios",
+      "description": "Inicia un servicio de Windows.",
+      "template": "sc start {service}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "service",
+          "label": "Servicio",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Detener servicio",
+      "command": "sc stop",
+      "category": "Servicios",
+      "description": "Detiene un servicio de Windows.",
+      "template": "sc stop {service}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "service",
+          "label": "Servicio",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Configurar servicio",
+      "command": "sc config",
+      "category": "Servicios",
+      "description": "Modifica parámetros de inicio de un servicio.",
+      "template": "sc config {service} start= {start}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "service",
+          "label": "Servicio",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "start",
+          "label": "Tipo de inicio",
+          "type": "combo",
+          "values": [
+            "auto",
+            "delayed-auto",
+            "demand",
+            "disabled"
+          ],
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Crear servicio",
+      "command": "sc create",
+      "category": "Servicios",
+      "description": "Crea un nuevo servicio de Windows.",
+      "template": "sc create {service} binPath= {path}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "service",
+          "label": "Nombre del servicio",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "path",
+          "label": "Ejecutable",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Eliminar servicio",
+      "command": "sc delete",
+      "category": "Servicios",
+      "description": "Elimina un servicio registrado.",
+      "template": "sc delete {service}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "service",
+          "label": "Servicio",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Tareas programadas",
+      "command": "schtasks /query",
+      "category": "Tareas programadas",
+      "description": "Lista las tareas programadas de Windows.",
+      "template": "schtasks /query",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Detalles de tareas programadas",
+      "command": "schtasks /query /fo LIST /v",
+      "category": "Tareas programadas",
+      "description": "Muestra información detallada de las tareas programadas.",
+      "template": "schtasks /query /fo LIST /v",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Ejecutar tarea programada",
+      "command": "schtasks /run",
+      "category": "Tareas programadas",
+      "description": "Ejecuta inmediatamente una tarea programada.",
+      "template": "schtasks /run /tn {task}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "task",
+          "label": "Ruta/nombre de tarea",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Eliminar tarea programada",
+      "command": "schtasks /delete",
+      "category": "Tareas programadas",
+      "description": "Elimina una tarea programada.",
+      "template": "schtasks /delete /tn {task} /f",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "task",
+          "label": "Tarea",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Lista de registros de eventos",
+      "command": "wevtutil el",
+      "category": "Eventos",
+      "description": "Lista los registros de eventos disponibles.",
+      "template": "wevtutil el",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Consultar registro de eventos",
+      "command": "wevtutil qe",
+      "category": "Eventos",
+      "description": "Consulta eventos almacenados en un registro específico.",
+      "template": "wevtutil qe {log} /c:{count} /f:text",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "log",
+          "label": "Registro",
+          "type": "text",
+          "required": true,
+          "default": "System"
+        },
+        {
+          "key": "count",
+          "label": "Cantidad",
+          "type": "text",
+          "required": true,
+          "default": "20"
+        }
+      ]
+    },
+    {
+      "name": "Información de registro de eventos",
+      "command": "wevtutil gl",
+      "category": "Eventos",
+      "description": "Muestra la configuración de un registro de eventos.",
+      "template": "wevtutil gl {log}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "log",
+          "label": "Registro",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Exportar registro de eventos",
+      "command": "wevtutil epl",
+      "category": "Eventos",
+      "description": "Exporta un registro de eventos a un archivo EVTX.",
+      "template": "wevtutil epl {log} {file}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "log",
+          "label": "Registro",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "file",
+          "label": "Archivo EVTX",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Limpiar registro de eventos",
+      "command": "wevtutil cl",
+      "category": "Eventos",
+      "description": "Borra los eventos almacenados en un registro.",
+      "template": "wevtutil cl {log}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "log",
+          "label": "Registro",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Estado del disco",
+      "command": "manage-bde -status",
+      "category": "BitLocker",
+      "description": "Muestra el estado de BitLocker en los volúmenes.",
+      "template": "manage-bde -status",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Protectores BitLocker",
+      "command": "manage-bde -protectors -get",
+      "category": "BitLocker",
+      "description": "Muestra los protectores de BitLocker configurados en una unidad.",
+      "template": "manage-bde -protectors -get {drive}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "drive",
+          "label": "Unidad",
+          "type": "text",
+          "required": true,
+          "default": "C:"
+        }
+      ]
+    },
+
+    {
+      "name": "Espacio libre del volumen",
+      "command": "fsutil volume diskfree",
+      "category": "Discos",
+      "description": "Muestra el espacio libre y utilizado de un volumen.",
+      "template": "fsutil volume diskfree {drive}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "drive",
+          "label": "Unidad",
+          "type": "text",
+          "required": true,
+          "default": "C:"
+        }
+      ]
+    },
+    {
+      "name": "Unidades disponibles",
+      "command": "fsutil fsinfo drives",
+      "category": "Discos",
+      "description": "Lista las unidades disponibles en el sistema.",
+      "template": "fsutil fsinfo drives",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Comprobar disco",
+      "command": "chkdsk",
+      "category": "Discos",
+      "description": "Comprueba la estructura de un sistema de archivos.",
+      "template": "chkdsk {drive}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "drive",
+          "label": "Unidad",
+          "type": "text",
+          "required": true,
+          "default": "C:"
+        }
+      ]
+    },
+    {
+      "name": "Analizar disco sin desmontar",
+      "command": "chkdsk /scan",
+      "category": "Discos",
+      "description": "Realiza un análisis online del volumen NTFS.",
+      "template": "chkdsk {drive} /scan",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "drive",
+          "label": "Unidad",
+          "type": "text",
+          "required": true,
+          "default": "C:"
+        }
+      ]
+    },
+    {
+      "name": "Analizar fragmentación",
+      "command": "defrag /a",
+      "category": "Discos",
+      "description": "Analiza la fragmentación de una unidad sin iniciar una optimización.",
+      "template": "defrag {drive} /a",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "drive",
+          "label": "Unidad",
+          "type": "text",
+          "required": true,
+          "default": "C:"
+        }
+      ]
+    },
+
+    {
+      "name": "Estado de BCD",
+      "command": "bcdedit /enum all",
+      "category": "Arranque",
+      "description": "Muestra las entradas completas de la configuración de arranque de Windows.",
+      "template": "bcdedit /enum all",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Cambiar tiempo del menú de arranque",
+      "command": "bcdedit /timeout",
+      "category": "Arranque",
+      "description": "Establece cuántos segundos aparece el menú de selección de arranque.",
+      "template": "bcdedit /timeout {seconds}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "seconds",
+          "label": "Segundos",
+          "type": "text",
+          "required": true,
+          "default": "5"
+        }
+      ]
+    },
+    {
+      "name": "Información de recuperación",
+      "command": "reagentc /info",
+      "category": "Recuperación",
+      "description": "Muestra la configuración del entorno de recuperación de Windows.",
+      "template": "reagentc /info",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Activar recuperación de Windows",
+      "command": "reagentc /enable",
+      "category": "Recuperación",
+      "description": "Activa el entorno de recuperación de Windows.",
+      "template": "reagentc /enable",
+      "admin": true,
+      "danger": true,
+      "fields": []
+    },
+    {
+      "name": "Desactivar recuperación de Windows",
+      "command": "reagentc /disable",
+      "category": "Recuperación",
+      "description": "Desactiva el entorno de recuperación de Windows.",
+      "template": "reagentc /disable",
+      "admin": true,
+      "danger": true,
+      "fields": []
+    },
+
+    {
+      "name": "Comprobar imagen de Windows",
+      "command": "DISM /Online /Cleanup-Image /CheckHealth",
+      "category": "Windows",
+      "description": "Comprueba rápidamente si la imagen de Windows tiene daños conocidos.",
+      "template": "DISM /Online /Cleanup-Image /CheckHealth",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Escanear imagen de Windows",
+      "command": "DISM /Online /Cleanup-Image /ScanHealth",
+      "category": "Windows",
+      "description": "Realiza un análisis más profundo de la imagen de Windows.",
+      "template": "DISM /Online /Cleanup-Image /ScanHealth",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Reparar imagen de Windows",
+      "command": "DISM /Online /Cleanup-Image /RestoreHealth",
+      "category": "Windows",
+      "description": "Intenta reparar componentes dañados de la imagen de Windows.",
+      "template": "DISM /Online /Cleanup-Image /RestoreHealth",
+      "admin": true,
+      "danger": true,
+      "fields": []
+    },
+    {
+      "name": "Comprobar archivos del sistema",
+      "command": "sfc /scannow",
+      "category": "Windows",
+      "description": "Analiza y repara archivos protegidos del sistema.",
+      "template": "sfc /scannow",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Verificar archivos del sistema",
+      "command": "sfc /verifyonly",
+      "category": "Windows",
+      "description": "Comprueba archivos protegidos sin realizar reparaciones.",
+      "template": "sfc /verifyonly",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+
+    {
+      "name": "Consultar registro de Windows",
+      "command": "reg query",
+      "category": "Registro",
+      "description": "Consulta una clave del Registro de Windows.",
+      "template": "reg query {key}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "key",
+          "label": "Clave del registro",
+          "type": "text",
+          "required": true,
+          "default": "HKCU\\Software"
+        }
+      ]
+    },
+    {
+      "name": "Agregar valor al registro",
+      "command": "reg add",
+      "category": "Registro",
+      "description": "Crea o modifica una clave o valor del Registro.",
+      "template": "reg add {key} /v {value} /t {type} /d {data} /f",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "key",
+          "label": "Clave",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "value",
+          "label": "Nombre del valor",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "type",
+          "label": "Tipo",
+          "type": "combo",
+          "values": [
+            "REG_SZ",
+            "REG_EXPAND_SZ",
+            "REG_DWORD",
+            "REG_QWORD",
+            "REG_BINARY",
+            "REG_MULTI_SZ"
+          ],
+          "required": true
+        },
+        {
+          "key": "data",
+          "label": "Datos",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Exportar registro",
+      "command": "reg export",
+      "category": "Registro",
+      "description": "Exporta una clave del Registro a un archivo REG.",
+      "template": "reg export {key} {file} /y",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "key",
+          "label": "Clave",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "file",
+          "label": "Archivo REG",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Eliminar valor del registro",
+      "command": "reg delete",
+      "category": "Registro",
+      "description": "Elimina una clave o valor del Registro.",
+      "template": "reg delete {key} /v {value} /f",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "key",
+          "label": "Clave",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "value",
+          "label": "Valor",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Estado del Firewall",
+      "command": "netsh advfirewall show allprofiles",
+      "category": "Firewall",
+      "description": "Muestra la configuración de todos los perfiles del Firewall de Windows.",
+      "template": "netsh advfirewall show allprofiles",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Lista de reglas del Firewall",
+      "command": "netsh advfirewall firewall show rule",
+      "category": "Firewall",
+      "description": "Muestra las reglas configuradas en el Firewall.",
+      "template": "netsh advfirewall firewall show rule name=all",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Activar Firewall",
+      "command": "netsh advfirewall set allprofiles state on",
+      "category": "Firewall",
+      "description": "Activa el Firewall de Windows para todos los perfiles.",
+      "template": "netsh advfirewall set allprofiles state on",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Desactivar Firewall",
+      "command": "netsh advfirewall set allprofiles state off",
+      "category": "Firewall",
+      "description": "Desactiva el Firewall de Windows para todos los perfiles.",
+      "template": "netsh advfirewall set allprofiles state off",
+      "admin": true,
+      "danger": true,
+      "fields": []
+    },
+    {
+      "name": "Agregar regla de Firewall",
+      "command": "netsh advfirewall firewall add rule",
+      "category": "Firewall",
+      "description": "Crea una regla personalizada en el Firewall de Windows.",
+      "template": "netsh advfirewall firewall add rule name={name} dir={direction} action={action} protocol={protocol} localport={port}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "name",
+          "label": "Nombre",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "direction",
+          "label": "Dirección",
+          "type": "combo",
+          "values": [
+            "in",
+            "out"
+          ],
+          "required": true
+        },
+        {
+          "key": "action",
+          "label": "Acción",
+          "type": "combo",
+          "values": [
+            "allow",
+            "block"
+          ],
+          "required": true
+        },
+        {
+          "key": "protocol",
+          "label": "Protocolo",
+          "type": "combo",
+          "values": [
+            "TCP",
+            "UDP"
+          ],
+          "required": true
+        },
+        {
+          "key": "port",
+          "label": "Puerto",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Eliminar regla de Firewall",
+      "command": "netsh advfirewall firewall delete rule",
+      "category": "Firewall",
+      "description": "Elimina una regla del Firewall.",
+      "template": "netsh advfirewall firewall delete rule name={name}",
+      "admin": true,
+      "danger": true,
+      "fields": [
+        {
+          "key": "name",
+          "label": "Nombre de regla",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Solicitudes de energía",
+      "command": "powercfg /requests",
+      "category": "Energía",
+      "description": "Muestra procesos y dispositivos que impiden estados de ahorro de energía.",
+      "template": "powercfg /requests",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Planes de energía",
+      "command": "powercfg /list",
+      "category": "Energía",
+      "description": "Lista los planes de energía configurados.",
+      "template": "powercfg /list",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Informe de energía",
+      "command": "powercfg /energy",
+      "category": "Energía",
+      "description": "Analiza problemas relacionados con la eficiencia energética.",
+      "template": "powercfg /energy /output {file}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo HTML",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Informe de batería",
+      "command": "powercfg /batteryreport",
+      "category": "Energía",
+      "description": "Genera un informe HTML sobre el estado y uso de la batería.",
+      "template": "powercfg /batteryreport /output {file}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo HTML",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Buscar ejecutable",
+      "command": "where",
+      "category": "Utilidades",
+      "description": "Busca dónde se encuentra un ejecutable disponible desde PATH.",
+      "template": "where {program}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "program",
+          "label": "Programa",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Asociaciones de archivos",
+      "command": "assoc",
+      "category": "Archivos",
+      "description": "Muestra las asociaciones entre extensiones y tipos de archivo.",
+      "template": "assoc",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Asociación de extensión",
+      "command": "assoc",
+      "category": "Archivos",
+      "description": "Muestra qué tipo de archivo está asociado con una extensión.",
+      "template": "assoc {extension}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "extension",
+          "label": "Extensión",
+          "type": "text",
+          "required": true,
+          "default": ".txt"
+        }
+      ]
+    },
+    {
+      "name": "Tipo de archivo asociado",
+      "command": "ftype",
+      "category": "Archivos",
+      "description": "Muestra el comando asociado a un tipo de archivo.",
+      "template": "ftype {type}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "type",
+          "label": "Tipo",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Atributos de archivo",
+      "command": "attrib",
+      "category": "Archivos",
+      "description": "Muestra los atributos de un archivo o conjunto de archivos.",
+      "template": "attrib {path}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "path",
+          "label": "Archivo o carpeta",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Mostrar enlaces duros",
+      "command": "fsutil hardlink list",
+      "category": "NTFS",
+      "description": "Muestra los enlaces duros asociados con un archivo.",
+      "template": "fsutil hardlink list {file}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Consultar punto de reanálisis",
+      "command": "fsutil reparsepoint query",
+      "category": "NTFS",
+      "description": "Consulta información de un punto de reanálisis NTFS.",
+      "template": "fsutil reparsepoint query {path}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "path",
+          "label": "Archivo o carpeta",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Cifrado EFS: comprobar archivo",
+      "command": "cipher /c",
+      "category": "Seguridad",
+      "description": "Muestra información sobre el cifrado EFS de un archivo.",
+      "template": "cipher /c {file}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Hash SHA256",
+      "command": "certutil -hashfile",
+      "category": "Seguridad",
+      "description": "Calcula el hash criptográfico de un archivo.",
+      "template": "certutil -hashfile {file} SHA256",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Certificados personales",
+      "command": "certutil -store My",
+      "category": "Certificados",
+      "description": "Muestra certificados almacenados en el almacén personal.",
+      "template": "certutil -store My",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+
+    {
+      "name": "Auditoría de seguridad",
+      "command": "auditpol /get /category:*",
+      "category": "Seguridad",
+      "description": "Muestra las políticas de auditoría de seguridad configuradas.",
+      "template": "auditpol /get /category:*",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Categorías de auditoría",
+      "command": "auditpol /list",
+      "category": "Seguridad",
+      "description": "Lista las categorías de auditoría disponibles.",
+      "template": "auditpol /list",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Exportar política de seguridad",
+      "command": "secedit /export",
+      "category": "Seguridad",
+      "description": "Exporta la configuración de seguridad local.",
+      "template": "secedit /export /cfg {file}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo CFG",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Consulta WinRM",
+      "command": "winrm get winrm/config",
+      "category": "Administración remota",
+      "description": "Muestra la configuración actual de Windows Remote Management.",
+      "template": "winrm get winrm/config",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Listeners WinRM",
+      "command": "winrm enumerate winrm/config/listener",
+      "category": "Administración remota",
+      "description": "Muestra los listeners configurados para WinRM.",
+      "template": "winrm enumerate winrm/config/listener",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+
+    {
+      "name": "Compilar Python a EXE",
+      "command": "python -m PyInstaller --onefile",
+      "category": "Desarrollo",
+      "description": "Compila un programa Python como ejecutable utilizando PyInstaller.",
+      "template": "python -m PyInstaller --onefile {file}",
+      "admin": false,
+      "danger": false,
+      "note": "Requiere PyInstaller instalado.",
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo Python",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Compilar Python EXE sin consola",
+      "command": "python -m PyInstaller --onefile --noconsole",
+      "category": "Desarrollo",
+      "description": "Genera un ejecutable Python de un solo archivo sin abrir una consola.",
+      "template": "python -m PyInstaller --onefile --noconsole {file}",
+      "admin": false,
+      "danger": false,
+      "note": "Requiere PyInstaller instalado.",
+      "fields": [
+        {
+          "key": "file",
+          "label": "Archivo Python",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Publicar proyecto .NET",
+      "command": "dotnet publish",
+      "category": "Desarrollo",
+      "description": "Publica un proyecto .NET para generar sus archivos de distribución.",
+      "template": "dotnet publish {path}",
+      "admin": false,
+      "danger": false,
+      "note": "Requiere .NET SDK.",
+      "fields": [
+        {
+          "key": "path",
+          "label": "Proyecto o solución",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Compilar proyecto .NET",
+      "command": "dotnet build",
+      "category": "Desarrollo",
+      "description": "Compila un proyecto o solución .NET.",
+      "template": "dotnet build {path}",
+      "admin": false,
+      "danger": false,
+      "note": "Requiere .NET SDK.",
+      "fields": [
+        {
+          "key": "path",
+          "label": "Proyecto o solución",
+          "type": "file",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Mostrar macros DOSKEY",
+      "command": "doskey /macros",
+      "category": "CMD",
+      "description": "Muestra las macros DOSKEY definidas para la sesión.",
+      "template": "doskey /macros",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Esperar segundos",
+      "command": "timeout",
+      "category": "Automatización",
+      "description": "Pausa la ejecución de CMD durante una cantidad determinada de segundos.",
+      "template": "timeout /t {seconds}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "seconds",
+          "label": "Segundos",
+          "type": "text",
+          "required": true,
+          "default": "5"
+        }
+      ]
+    },
+    {
+      "name": "Localizar comando",
+      "command": "where",
+      "category": "Automatización",
+      "description": "Busca un comando o ejecutable dentro de las rutas disponibles.",
+      "template": "where {command}",
+      "admin": false,
+      "danger": false,
+      "fields": [
+        {
+          "key": "command",
+          "label": "Comando",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Lista de controladores DISM",
+      "command": "DISM /Online /Get-Drivers",
+      "category": "DISM",
+      "description": "Muestra los controladores incluidos en la imagen de Windows.",
+      "template": "DISM /Online /Get-Drivers",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Paquetes DISM",
+      "command": "DISM /Online /Get-Packages",
+      "category": "DISM",
+      "description": "Lista los paquetes instalados en la imagen actual de Windows.",
+      "template": "DISM /Online /Get-Packages",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Características de Windows",
+      "command": "DISM /Online /Get-Features",
+      "category": "DISM",
+      "description": "Lista las características opcionales de Windows y su estado.",
+      "template": "DISM /Online /Get-Features",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+
+    {
+      "name": "Configuración de energía",
+      "command": "powercfg /query",
+      "category": "Energía",
+      "description": "Muestra la configuración detallada del plan de energía activo.",
+      "template": "powercfg /query",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Solicitudes de energía activas",
+      "command": "powercfg /requests",
+      "category": "Energía",
+      "description": "Identifica aplicaciones o dispositivos que impiden suspensión u otros estados de energía.",
+      "template": "powercfg /requests",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+
+    {
+      "name": "Lista de instantáneas VSS",
+      "command": "vssadmin list shadows",
+      "category": "Recuperación",
+      "description": "Lista las instantáneas de volumen disponibles.",
+      "template": "vssadmin list shadows",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Escritores VSS",
+      "command": "vssadmin list writers",
+      "category": "Recuperación",
+      "description": "Muestra el estado de los escritores de Volume Shadow Copy Service.",
+      "template": "vssadmin list writers",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Almacenamiento VSS",
+      "command": "vssadmin list shadowstorage",
+      "category": "Recuperación",
+      "description": "Muestra el espacio utilizado y reservado para instantáneas VSS.",
+      "template": "vssadmin list shadowstorage",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+
+    {
+      "name": "Crear evento personalizado",
+      "command": "eventcreate",
+      "category": "Eventos",
+      "description": "Crea un evento personalizado dentro de un registro de Windows.",
+      "template": "eventcreate /t {type} /id {id} /l {log} /d {description}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "type",
+          "label": "Tipo",
+          "type": "combo",
+          "values": [
+            "INFORMATION",
+            "WARNING",
+            "ERROR"
+          ],
+          "required": true
+        },
+        {
+          "key": "id",
+          "label": "ID",
+          "type": "text",
+          "required": true,
+          "default": "1000"
+        },
+        {
+          "key": "log",
+          "label": "Registro",
+          "type": "text",
+          "required": true,
+          "default": "APPLICATION"
+        },
+        {
+          "key": "description",
+          "label": "Descripción",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+
+    {
+      "name": "Optimizar unidad",
+      "command": "defrag",
+      "category": "Discos",
+      "description": "Ejecuta la optimización de una unidad.",
+      "template": "defrag {drive}",
+      "admin": true,
+      "danger": false,
+      "fields": [
+        {
+          "key": "drive",
+          "label": "Unidad",
+          "type": "text",
+          "required": true,
+          "default": "C:"
+        }
+      ]
+    },
+
+    {
+      "name": "Abrir administrador de discos",
+      "command": "diskmgmt.msc",
+      "category": "Herramientas",
+      "description": "Abre el Administrador de discos de Windows.",
+      "template": "start diskmgmt.msc",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir administrador de dispositivos",
+      "command": "devmgmt.msc",
+      "category": "Herramientas",
+      "description": "Abre el Administrador de dispositivos.",
+      "template": "start devmgmt.msc",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir servicios",
+      "command": "services.msc",
+      "category": "Herramientas",
+      "description": "Abre el administrador gráfico de servicios de Windows.",
+      "template": "start services.msc",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir visor de eventos",
+      "command": "eventvwr.msc",
+      "category": "Herramientas",
+      "description": "Abre el Visor de eventos de Windows.",
+      "template": "start eventvwr.msc",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir Editor del Registro",
+      "command": "regedit",
+      "category": "Herramientas",
+      "description": "Abre el Editor del Registro.",
+      "template": "start regedit",
+      "admin": true,
+      "danger": true,
+      "fields": []
+    },
+    {
+      "name": "Abrir configuración del sistema",
+      "command": "msconfig",
+      "category": "Herramientas",
+      "description": "Abre la configuración del sistema de Windows.",
+      "template": "start msconfig",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir monitor de rendimiento",
+      "command": "perfmon",
+      "category": "Diagnóstico",
+      "description": "Abre el Monitor de rendimiento de Windows.",
+      "template": "start perfmon",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir monitor de recursos",
+      "command": "resmon",
+      "category": "Diagnóstico",
+      "description": "Abre el Monitor de recursos.",
+      "template": "start resmon",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir información del sistema",
+      "command": "msinfo32",
+      "category": "Diagnóstico",
+      "description": "Abre Información del sistema.",
+      "template": "start msinfo32",
+      "admin": false,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir servicios de componentes",
+      "command": "dcomcnfg",
+      "category": "Herramientas",
+      "description": "Abre la consola de Servicios de componentes.",
+      "template": "start dcomcnfg",
+      "admin": true,
+      "danger": true,
+      "fields": []
+    },
+    {
+      "name": "Abrir administración de equipos",
+      "command": "compmgmt.msc",
+      "category": "Herramientas",
+      "description": "Abre Administración de equipos.",
+      "template": "start compmgmt.msc",
+      "admin": true,
+      "danger": false,
+      "fields": []
+    },
+    {
+      "name": "Abrir política de seguridad local",
+      "command": "secpol.msc",
+      "category": "Seguridad",
+      "description": "Abre la consola de Política de seguridad local, cuando está disponible.",
+      "template": "start secpol.msc",
+      "admin": true,
+      "danger": true,
+      "note": "No está disponible en algunas ediciones de Windows.",
+      "fields": []
+    },
+    {
+      "name": "Abrir política de grupo",
+      "command": "gpedit.msc",
+      "category": "Administración",
+      "description": "Abre el Editor de directivas de grupo local.",
+      "template": "start gpedit.msc",
+      "admin": true,
+      "danger": true,
+      "note": "Normalmente disponible en ediciones Pro/Enterprise.",
+      "fields": []
+    }
+  ]
+}
